@@ -6,10 +6,10 @@ CONTAINER = ft_server_container
 all: docker_build docker_run
 
 docker_build:
-		docker build --no-cache -t $(IMAGE) .
+		docker build -t $(IMAGE) .
 
 docker_run:
-		docker container run --rm -it --name $(CONTAINER) -p 80:80 -p 443:443 -d $(IMAGE)
+		docker container run -it --name $(CONTAINER) -p 80:80 -p 443:443 -d $(IMAGE)
 
 docker_run-off:
 		docker container run -it --name $(CONTAINER) -e AUTO_INDEX=off -p 80:80 -p 443:443 -d $(IMAGE)
@@ -33,3 +33,5 @@ autoindex_on:
 
 autoindex_off:
 		docker container exec $(CONTAINER) bash /root/autoindex.sh off
+
+re: clean all
