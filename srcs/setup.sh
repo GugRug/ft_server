@@ -2,8 +2,6 @@
 
 #Create website core directories
 mkdir /var/www/localhost
-mkdir /var/www/localhost/phpmyadmin
-mkdir /var/www/localhost/wordpress
 
 #Permissions and ownership
 chown -R www-data:www-data /var/www/*
@@ -29,7 +27,7 @@ mv phpMyAdmin-5.0.4-english /var/www/localhost/phpmyadmin
 wget https://wordpress.org/latest.tar.gz
 tar -xf latest.tar.gz
 rm latest.tar.gz
-mv wordpress/ var/www/localhost/wordpress
+mv wordpress var/www/localhost/
 
 #config
 cp /temp/info.php var/www/localhost/
